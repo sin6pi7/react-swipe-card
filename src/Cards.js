@@ -18,7 +18,7 @@ class SwipeCards extends Component {
     setTimeout(() => {
       if (side === 'left') this.setState({ alertLeft: false })
       else if (side === 'right') this.setState({ alertRight: false })
-    }, 300)
+    }, this.props.alertTimeout)
     
     if (children.length === (this.state.index + 1) && this.props.onEnd) this.props.onEnd()
     
@@ -78,6 +78,9 @@ class SwipeCards extends Component {
       </div>
     )
   }
+}
+SwipeCards.defaultProps = {
+  alertTimeout: 300
 }
 
 export default SwipeCards

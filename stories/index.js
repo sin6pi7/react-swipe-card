@@ -61,3 +61,18 @@ storiesOf('Tinder card', module)
       </Cards>
     </div>
   ))
+  .add('with custom alert timeout', () => (
+    <div>
+      <h1>react swipe card</h1>
+      <Cards
+        alertTimeout={1000}
+        onEnd={action('end')}
+        className='master-root'>
+        {data.map(item =>
+          <Card>
+            <h2>{item}</h2>
+          </Card>
+        )}
+      </Cards>
+    </div>
+  ))
