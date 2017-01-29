@@ -34,10 +34,26 @@ class Card extends Component {
       zIndex: this.props.index,
       ...this.props.style
     }
+    const buttonLeft = this.props.buttonLeft
+      ? <button className="buttonLeft"
+                onClick={() => {
+                  if (this.props.onSwipeLeft) this.props.onSwipeLeft()
+                  this.props.onOutScreenLeft()
+                }}>{this.props.buttonLeft}</button>
+      : null
+    const buttonRight = this.props.buttonRight
+      ? <button className="buttonRight"
+                onClick={() => {
+                  if (this.props.onSwipeRight) this.props.onSwipeRight()
+                  this.props.onOutScreenRight()
+                }}>{this.props.buttonRight}</button>
+      : null
 
     return (
       <div style={style} className={`card ${className}`}>
         {this.props.children}
+        {buttonLeft}
+        {buttonRight}
       </div>
     )
   }
